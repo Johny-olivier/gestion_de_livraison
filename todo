@@ -1,0 +1,47 @@
+[en cours ...] I - Base de données [Johny] [30 min]:
+
+    [OK] - entrepot (
+            id,
+            nom,
+            adresse
+        )
+
+    [OK] - zone_livraison (
+            id,
+            nom
+        )
+
+    [OK] - vehicule (
+            id,
+            immatriculation,
+            cout_par_livraison
+        )
+
+    [OK] - chauffeur (livreur) (
+            id,
+            nom,
+            salaire_par_livraison
+        )
+
+    [OK] - colis (
+            id,
+            poids_kg
+        )
+
+    [OK] - parametre (
+            id,
+            gain_par_kg
+        )
+
+    [OK] - livraison (
+            id,
+            colis_id,
+            chauffeur_id,
+            vehicule_id,
+            zone_id,
+            entrepot_id,
+            statut (en attente, livré, annulé),
+            date_livraison
+        )
+
+    [en cours ...] - vues SQL (statistiques & gestion)

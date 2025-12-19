@@ -1,0 +1,33 @@
+# Activer la réécriture d'URL
+RewriteEngine On
+RewriteBase /ETU004282/gestion-livraison/
+
+# Ne pas réécrire les fichiers ou dossiers existants
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rediriger toutes les requêtes vers index.php
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# -----------------------------------
+# Compression GZIP pour performance
+# -----------------------------------
+<IfModule mod_deflate.c>
+    # Compresser le texte, HTML, CSS, JS, XML
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/xml
+</IfModule>
+
+# -----------------------------------
+# CORS / Security headers (optionnel)
+# -----------------------------------
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
